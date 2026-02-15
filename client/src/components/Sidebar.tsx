@@ -30,22 +30,27 @@ export function Sidebar() {
       {/* Sidebar Container */}
       <aside
         className={`
-          fixed top-0 left-0 z-40 h-screen w-72 bg-secondary/95 backdrop-blur-md border-r border-border
+          fixed top-0 left-0 z-40 h-screen w-80 bg-[#121b18]/95 backdrop-blur-md border-r border-border
           transition-transform duration-300 ease-in-out md:translate-x-0
           ${isOpen ? "translate-x-0" : "-translate-x-full"}
         `}
       >
         <div className="flex flex-col h-full p-6">
           {/* Logo / Brand */}
-          <div className="flex items-center gap-2 mb-12">
-            <div className="w-10 h-10 rounded bg-primary/10 flex items-center justify-center border border-primary/20 text-primary">
+          <ScrollLink
+            to="home"
+            smooth={true}
+            duration={500}
+            className="flex items-center gap-2 mb-12 cursor-pointer group"
+          >
+            <div className="w-10 h-10 rounded bg-primary/10 flex items-center justify-center border border-primary/20 text-primary group-hover:bg-primary/20 transition-all">
               <span className="font-mono font-bold text-xl">YM</span>
             </div>
             <div>
-              <h1 className="font-bold text-lg leading-tight">Youssef Mohamed</h1>
+              <h1 className="font-bold text-lg leading-tight group-hover:text-primary transition-colors">Youssef Mohamed</h1>
               <p className="text-xs text-muted-foreground font-mono">Offensive Security</p>
             </div>
-          </div>
+          </ScrollLink>
 
           {/* Navigation */}
           <nav className="flex-1 space-y-2">

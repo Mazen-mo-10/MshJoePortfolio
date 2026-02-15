@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { Sidebar } from "@/components/Sidebar";
 import { SectionHeading } from "@/components/SectionHeading";
 import { ProjectCard } from "@/components/ProjectCard";
@@ -10,7 +10,7 @@ import { useContact } from "@/hooks/use-contact";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { insertMessageSchema, type InsertMessage } from "@shared/schema";
-import { motion } from "framer-motion";
+import { motion, AnimatePresence } from "framer-motion";
 import { 
   SiHackerone, 
   SiBugcrowd, 
@@ -25,7 +25,7 @@ import {
   SiHtml5,
   SiJavascript
 } from "react-icons/si";
-import { Github, Linkedin, Mail, Terminal, Lock, Code, GraduationCap } from "lucide-react";
+import { Github, Linkedin, Mail, Terminal, Lock, Code, GraduationCap, ChevronUp } from "lucide-react";
 import profilePic from "@assets/mshjoeing_1771196177993.jpeg";
 import {
   Form,
@@ -38,6 +38,15 @@ import {
 
 export default function Home() {
   const contactMutation = useContact();
+  const [showScrollTop, setShowScrollTop] = useState(false);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      setShowScrollTop(window.scrollY > 400);
+    };
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
   
   const form = useForm<InsertMessage>({
     resolver: zodResolver(insertMessageSchema),
@@ -58,7 +67,7 @@ export default function Home() {
     <div className="min-h-screen bg-background text-foreground selection:bg-primary selection:text-primary-foreground">
       <Sidebar />
       
-      <main className="md:pl-72 w-full">
+      <main className="md:pl-80 w-full">
         {/* HERO SECTION */}
         <section id="home" className="min-h-screen flex items-center justify-center p-6 md:p-12 lg:p-24 relative overflow-hidden">
           {/* Background Decorative Elements */}
@@ -78,10 +87,13 @@ export default function Home() {
               <h2 className="text-4xl md:text-6xl font-bold text-muted-foreground mb-8">
                 I break things to secure them.
               </h2>
-              <p className="max-w-xl text-muted-foreground text-lg leading-relaxed mb-10">
+              <p className="max-w-xl text-muted-foreground text-lg leading-relaxed mb-4">
                 I am a High-achieving Computer Science Undergraduate specializing in 
                 <span className="text-primary font-medium"> Offensive Security</span>. 
                 Currently focused on Bug Bounty Hunting, Penetration Testing, and developing security tools.
+              </p>
+              <p className="text-sm font-mono text-primary/70 mb-10 italic">
+                Trusted by real-world bug bounty programs and security platforms.
               </p>
               
               <div className="flex gap-4">
@@ -122,6 +134,10 @@ export default function Home() {
               <p>
                 I actively participate in Bug Bounty programs on platforms like <span className="text-primary">HackerOne</span> and 
                 <span className="text-primary">Bugcrowd</span>, where I've identified critical vulnerabilities in various applications.
+              </p>
+              <p className="border-l-2 border-primary/30 pl-4 italic text-foreground/90">
+                My approach focuses on understanding systems deeply, modeling real attacker behavior,
+                and delivering actionable security insights.
               </p>
               <div className="pt-4">
                 <h4 className="font-mono text-foreground mb-4 text-sm">Recently working with:</h4>
@@ -165,7 +181,7 @@ export default function Home() {
               <div className="w-12 h-12 bg-primary/10 rounded-lg flex items-center justify-center mb-6 text-primary">
                 <Lock className="w-6 h-6" />
               </div>
-              <h3 className="text-xl font-bold mb-4">Offensive Security</h3>
+              <h3 className="text-xl font-bold mb-4">Web Application Security</h3>
               <ul className="space-y-2 font-mono text-sm text-muted-foreground">
                 <li className="flex items-center gap-2"><SiOwasp className="text-primary" /> OWASP Top 10</li>
                 <li className="flex items-center gap-2"><span className="text-primary">▹</span> SQL Injection</li>
@@ -185,13 +201,13 @@ export default function Home() {
               <div className="w-12 h-12 bg-primary/10 rounded-lg flex items-center justify-center mb-6 text-primary">
                 <Terminal className="w-6 h-6" />
               </div>
-              <h3 className="text-xl font-bold mb-4">Tools & Environment</h3>
+              <h3 className="text-xl font-bold mb-4">Network & Systems</h3>
               <ul className="space-y-2 font-mono text-sm text-muted-foreground">
                 <li className="flex items-center gap-2"><SiKalilinux className="text-primary" /> Kali Linux</li>
-                <li className="flex items-center gap-2"><SiBurpsuite className="text-primary" /> Burp Suite Pro</li>
                 <li className="flex items-center gap-2"><span className="text-primary">▹</span> Metasploit</li>
                 <li className="flex items-center gap-2"><SiWireshark className="text-primary" /> Wireshark</li>
                 <li className="flex items-center gap-2"><span className="text-primary">▹</span> Nmap / Masscan</li>
+                <li className="flex items-center gap-2"><SiLinux className="text-primary" /> System Internals</li>
               </ul>
             </motion.div>
 
@@ -205,13 +221,33 @@ export default function Home() {
               <div className="w-12 h-12 bg-primary/10 rounded-lg flex items-center justify-center mb-6 text-primary">
                 <Code className="w-6 h-6" />
               </div>
+              <h3 className="text-xl font-bold mb-4">Tools & Environments</h3>
+              <ul className="space-y-2 font-mono text-sm text-muted-foreground">
+                <li className="flex items-center gap-2"><SiBurpsuite className="text-primary" /> Burp Suite Pro</li>
+                <li className="flex items-center gap-2"><span className="text-primary">▹</span> FFUF / Gobuster</li>
+                <li className="flex items-center gap-2"><span className="text-primary">▹</span> HTTPX / Nuclei</li>
+                <li className="flex items-center gap-2"><span className="text-primary">▹</span> Git / Docker</li>
+                <li className="flex items-center gap-2"><span className="text-primary">▹</span> Virtualization</li>
+              </ul>
+            </motion.div>
+
+            <motion.div 
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ delay: 0.4 }}
+              className="bg-card p-6 rounded-lg border border-border hover:border-primary/50 transition-colors md:col-span-3 lg:col-span-1"
+            >
+              <div className="w-12 h-12 bg-primary/10 rounded-lg flex items-center justify-center mb-6 text-primary">
+                <Code className="w-6 h-6" />
+              </div>
               <h3 className="text-xl font-bold mb-4">Programming</h3>
               <ul className="space-y-2 font-mono text-sm text-muted-foreground">
-                <li className="flex items-center gap-2"><SiPython className="text-primary" /> Python Scripting</li>
+                <li className="flex items-center gap-2"><SiPython className="text-primary" /> Python</li>
                 <li className="flex items-center gap-2"><SiCplusplus className="text-primary" /> C++ / C</li>
-                <li className="flex items-center gap-2"><SiGnubash className="text-primary" /> Bash Scripting</li>
+                <li className="flex items-center gap-2"><SiGnubash className="text-primary" /> Bash</li>
                 <li className="flex items-center gap-2"><SiJavascript className="text-primary" /> JavaScript</li>
-                <li className="flex items-center gap-2"><SiHtml5 className="text-primary" /> HTML / CSS</li>
+                <li className="flex items-center gap-2"><span className="text-primary">▹</span> Assembly x86-64</li>
               </ul>
             </motion.div>
           </div>
@@ -226,7 +262,9 @@ export default function Home() {
               title="Linux Process Monitor"
               description="A real-time process monitoring tool built with C++ and ncurses library. Features process filtering, sorting, and resource usage tracking similar to htop."
               tags={["C++", "System Programming", "Linux API", "ncurses"]}
-              githubUrl="https://github.com"
+              severity="Medium"
+              takeaway="Low-level knowledge is fundamental for understanding operating system vulnerabilities."
+              githubUrl="https://github.com/Houdini-Y"
               delay={0}
             />
             
@@ -234,6 +272,8 @@ export default function Home() {
               title="Bug Bounty: Critical Logic Flaw"
               description="Identified a critical business logic vulnerability in a financial application that allowed unauthorized fund transfers between locked accounts."
               tags={["Web Security", "Logic Flaw", "Burp Suite", "Reported"]}
+              severity="Critical"
+              takeaway="Business logic flaws are often more dangerous than technical vulnerabilities."
               delay={0.1}
             />
             
@@ -241,7 +281,9 @@ export default function Home() {
               title="Multi-Threaded Port Scanner"
               description="High-performance network scanner written in Python using raw sockets and threading. capable of SYN/ACK scanning and service version detection."
               tags={["Python", "Networking", "Socket Programming"]}
-              githubUrl="https://github.com"
+              severity="Medium"
+              takeaway="Efficiency in reconnaissance tools can make or break a penetration testing timeline."
+              githubUrl="https://github.com/Houdini-Y"
               delay={0.2}
             />
 
@@ -249,7 +291,9 @@ export default function Home() {
               title="Steganography Tool"
               description="CLI tool for hiding encrypted messages inside image files using LSB (Least Significant Bit) manipulation."
               tags={["Python", "Cryptography", "Image Processing"]}
-              githubUrl="https://github.com"
+              severity="Low"
+              takeaway="Simple mathematical manipulation can hide complex data in plain sight."
+              githubUrl="https://github.com/Houdini-Y"
               delay={0.3}
             />
 
@@ -257,6 +301,8 @@ export default function Home() {
               title="Bug Bounty: Session Takeover"
               description="Discovered a session fixation vulnerability combined with XSS leading to full account takeover on a private program."
               tags={["XSS", "Session Mgmt", "HackerOne"]}
+              severity="High"
+              takeaway="Chaining vulnerabilities is the most effective way to demonstrate critical impact."
               delay={0.4}
             />
           </div>
@@ -391,9 +437,9 @@ export default function Home() {
               </Form>
             </div>
 
-            <div className="flex justify-center gap-8">
+            <div className="flex justify-center gap-8 mb-6">
               <a 
-                href="https://github.com" 
+                href="https://github.com/Houdini-Y" 
                 target="_blank" 
                 rel="noreferrer"
                 className="text-muted-foreground hover:text-primary hover:-translate-y-1 transition-all"
@@ -401,7 +447,7 @@ export default function Home() {
                 <Github className="w-6 h-6" />
               </a>
               <a 
-                href="https://linkedin.com" 
+                href="https://linkedin.com/in/youssef-mohamed-8b2a3a1b4" 
                 target="_blank" 
                 rel="noreferrer"
                 className="text-muted-foreground hover:text-primary hover:-translate-y-1 transition-all"
@@ -415,7 +461,7 @@ export default function Home() {
                 <Mail className="w-6 h-6" />
               </a>
               <a 
-                href="https://hackerone.com" 
+                href="https://hackerone.com/houdini-y" 
                 target="_blank" 
                 rel="noreferrer"
                 className="text-muted-foreground hover:text-primary hover:-translate-y-1 transition-all"
@@ -423,8 +469,28 @@ export default function Home() {
                 <SiHackerone className="w-6 h-6" />
               </a>
             </div>
+            <p className="font-mono text-[10px] text-muted-foreground/50">
+              PGP key available upon request.
+            </p>
           </motion.div>
         </section>
+
+        {/* SCROLL TO TOP */}
+        <AnimatePresence>
+          {showScrollTop && (
+            <motion.button
+              initial={{ opacity: 0, scale: 0.5 }}
+              animate={{ opacity: 1, scale: 1 }}
+              exit={{ opacity: 0, scale: 0.5 }}
+              onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
+              className="fixed bottom-8 right-8 z-50 p-3 rounded-full bg-primary text-primary-foreground shadow-lg hover:shadow-primary/50 transition-all active:scale-95"
+              whileHover={{ y: -5 }}
+              transition={{ type: "spring", stiffness: 400, damping: 10 }}
+            >
+              <ChevronUp className="w-6 h-6" />
+            </motion.button>
+          )}
+        </AnimatePresence>
 
         {/* FOOTER */}
         <footer className="py-6 text-center text-sm font-mono text-muted-foreground">

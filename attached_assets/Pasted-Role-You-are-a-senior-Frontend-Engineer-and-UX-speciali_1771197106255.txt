@@ -1,0 +1,142 @@
+Role:
+You are a senior Frontend Engineer and UX specialist polishing an already strong cybersecurity portfolio.
+
+Important Rule:
+❌ Do NOT redesign
+❌ Do NOT remove or change any existing sections or content
+❌ Do NOT add noise or flashy effects
+
+✅ Only enhance UX, clarity, and visual strength
+The site is already very good — your job is to make it feel premium and modern.
+
+🎨 Sidebar Enhancements (Very Important)
+
+Make the left sidebar slightly wider so it feels more solid and visible
+
+Increase width subtly (not too much)
+
+Adjust sidebar background to a slightly lighter green-tinted dark color
+
+Must visually match the Contact Me button green
+
+Keep icons and text exactly the same
+
+Active section highlight should remain green, but feel clearer
+
+⬆️ Scroll To Top Button
+
+Add a floating scroll-to-top arrow
+
+Color: Cyber Green (same accent used across the site)
+
+Position: bottom-right
+
+Behavior:
+
+Appears after scrolling down
+
+Smooth fade-in
+
+Small, elegant animation (pulse or bounce — very subtle)
+
+On click:
+
+Smooth scroll back to the top
+
+🖱️ Logo / Name Interaction
+
+Make the "Youssef Mohamed" name (top-left) clickable
+
+On click:
+
+Smoothly scroll back to the Home / Hero section
+
+Cursor pointer + subtle hover effect (color or underline)
+
+🏠 Home Section – Credibility Boost (Minimal)
+
+Under the main introduction text, add ONE short credibility line
+
+Keep it subtle, professional, and calm
+
+Example:
+
+Trusted by real-world bug bounty programs and security platforms.
+
+
+No badges explosion
+
+No icons spam
+
+🧠 About Section – Security Mindset Line
+
+At the end of the About section, add one final sentence that shows security thinking
+
+Example:
+
+My approach focuses on understanding systems deeply, modeling real attacker behavior,
+and delivering actionable security insights.
+
+🧰 Skills Section – Order Only
+
+Keep all skills exactly the same
+
+Only reorder categories to reflect real security workflow:
+
+Web Application Security
+
+Network & Systems
+
+Tools & Environments
+
+Programming
+
+📁 Projects Section – Professional Touch
+
+For each project card:
+
+Add a small Severity badge
+
+Critical / High / Medium
+
+Add one short Key Takeaway line at the bottom
+
+Example:
+
+Key takeaway: Business logic flaws are often more dangerous than technical vulnerabilities.
+
+
+Keep layout unchanged
+
+📨 Contact Section – Security Flavor
+
+Under the contact form, add a very small line:
+
+PGP key available upon request.
+
+
+Keep it subtle
+
+🎥 Animations & Motion
+
+Use very subtle animations only
+
+Smooth transitions
+
+No aggressive motion
+
+The site should feel calm, confident, and premium
+
+🧹 Final Rules
+
+Do NOT break responsiveness
+
+Do NOT introduce Tailwind v3 syntax
+
+Do NOT add new libraries unless absolutely necessary
+
+Preserve the existing design identity
+
+Goal:
+Deliver a polished, modern cybersecurity portfolio that feels confident, professional,
+and recruiter-ready — without changing its soul.

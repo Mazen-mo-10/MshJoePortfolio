@@ -1,0 +1,206 @@
+Role:
+You are a senior Frontend Engineer with strong UX sense and experience building professional cybersecurity portfolios.
+
+Goal:
+Build a clean, focused, and modern Cybersecurity Portfolio Website using React typeScript + Tailwind CSS v4.
+The portfolio must highlight projects and skills clearly without distraction, while keeping a subtle hacker aesthetic.
+
+🧩 Tech Stack (Strict)
+
+React (Vite)
+
+Tailwind CSS v4 ONLY (not v3)
+
+No inline CSS
+
+No deprecated Tailwind v3 syntax
+
+Fully responsive (mobile-first)
+
+Clean, maintainable component structure
+
+🎨 Theme & Design System
+Themes
+
+Implement Light Mode & Dark Mode
+
+Both themes must include Cyber Green as an accent color
+
+Theme toggle must be smooth (with transition)
+
+Color Palette (Example – feel free to fine-tune)
+
+Primary Green: #00ff9c
+
+Dark Background: #0b0f0e
+
+Light Background: #f8faf9
+
+Text Dark: #0f172a
+
+Text Light: #e5e7eb
+
+Secondary Green (soft): #00c97a
+
+Use colors subtly — no aggressive neon.
+
+🧭 Layout & Navigation
+
+Vertical side navigation bar
+
+Sidebar:
+
+Highlights the current active section
+
+Uses green accent for active state
+
+Custom styled (NOT default/basic)
+
+Smooth scroll between sections
+
+Add a scroll-to-top floating button
+
+Appears after scrolling
+
+Smooth animation
+
+🏠 Pages / Sections
+1️⃣ Home
+
+Short professional introduction
+
+Profile photo
+
+Cybersecurity title (e.g. Cybersecurity Engineer / Penetration Tester)
+
+Subtle terminal-style text animation (very light, not distracting)
+
+2️⃣ About
+
+Professional summary
+
+Clear explanation of:
+
+Background
+
+Focus area (Red Team / Blue Team / General Security)
+
+Career goals
+
+3️⃣ Skills
+
+Display skills in a creative but clean way
+
+Categories:
+
+Security Tools
+
+Programming Languages
+
+Networking
+
+Operating Systems
+
+Avoid boring bullet lists
+
+Use cards, tags, or grouped blocks with subtle hover effects
+
+4️⃣ Projects
+
+This is the MOST important section
+
+Each project card should include:
+
+Project title
+
+Short description
+
+Problem / Threat
+
+Tools used
+
+Outcome / Fix
+
+Clean grid layout
+
+Optional modal or expandable details
+
+5️⃣ Experience
+
+Timeline or card-based layout
+
+Internships, freelance, labs, CTFs, or work experience
+
+6️⃣ Education
+
+University
+
+Courses
+
+Certifications (if available)
+
+7️⃣ Contact
+
+Email
+
+LinkedIn
+
+GitHub
+
+Simple and professional
+
+📄 CV Integration
+
+Add a “Download CV” button
+
+CV data will be provided later (extract content from it)
+
+Button should be visible and styled with green accent
+
+🎥 Animations & Effects
+
+Subtle animations only
+
+Examples:
+
+Fade-in on scroll
+
+Small hover transitions
+
+Typing animation (minimal)
+
+❌ No heavy animations
+❌ No flashy hacker effects
+
+📱 Responsiveness
+
+Perfect mobile experience
+
+Sidebar adapts for mobile
+
+No overflow issues
+
+Test all breakpoints
+
+📦 Allowed Libraries
+
+(Only if needed)
+
+react-icons
+
+framer-motion (light usage only)
+
+No UI frameworks (no MUI, no Ant Design)
+
+🧹 Code Quality
+
+Well-structured components
+
+Reusable sections
+
+Clean naming
+
+No console errors
+
+Final Result:
+A professional, elegant cybersecurity portfolio that feels premium, focused, and recruiter-friendly — not noisy, not childish, and not overdesigned.

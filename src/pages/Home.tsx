@@ -157,7 +157,7 @@ export default function Home() {
                   <div className="rounded-xl border-2 border-primary p-1.5 bg-background shadow-lg group-hover:shadow-primary/20 transition-all duration-300">
                     <div className="relative rounded-lg overflow-hidden aspect-square w-full grayscale hover:grayscale-0 transition-all duration-300">
                       <img 
-                        src="/public/joephoto.jpeg" 
+                        src="/joephoto.jpeg" 
                         alt="Youssef Mohamed" 
                         className="w-full h-full object-cover"
                         onError={(e) => {

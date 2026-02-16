@@ -194,13 +194,13 @@ export default function Home() {
         <section id="skills" className="py-24 p-6 md:p-12 lg:p-24 max-w-5xl mx-auto bg-secondary/20">
           <SectionHeading number="02" title="Technical Arsenal" />
           
-          <div className="grid md:grid-cols-3 gap-8">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 lg:gap-8">
             <motion.div 
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ delay: 0.1 }}
-              className="bg-card p-6 rounded-lg border border-border hover:border-primary/50 transition-colors"
+              className="h-full bg-card p-7 rounded-xl border border-border hover:border-primary/50 transition-colors"
             >
               <div className="w-12 h-12 bg-primary/10 rounded-lg flex items-center justify-center mb-6 text-primary">
                 <Lock className="w-6 h-6" />
@@ -220,7 +220,7 @@ export default function Home() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ delay: 0.2 }}
-              className="bg-card p-6 rounded-lg border border-border hover:border-primary/50 transition-colors"
+              className="h-full bg-card p-7 rounded-xl border border-border hover:border-primary/50 transition-colors"
             >
               <div className="w-12 h-12 bg-primary/10 rounded-lg flex items-center justify-center mb-6 text-primary">
                 <Terminal className="w-6 h-6" />
@@ -240,7 +240,7 @@ export default function Home() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ delay: 0.3 }}
-              className="bg-card p-6 rounded-lg border border-border hover:border-primary/50 transition-colors"
+              className="h-full bg-card p-7 rounded-xl border border-border hover:border-primary/50 transition-colors"
             >
               <div className="w-12 h-12 bg-primary/10 rounded-lg flex items-center justify-center mb-6 text-primary">
                 <Code className="w-6 h-6" />
@@ -260,7 +260,7 @@ export default function Home() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ delay: 0.4 }}
-              className="bg-card p-6 rounded-lg border border-border hover:border-primary/50 transition-colors md:col-span-3 lg:col-span-1"
+              className="h-full bg-card p-7 rounded-xl border border-border hover:border-primary/50 transition-colors"
             >
               <div className="w-12 h-12 bg-primary/10 rounded-lg flex items-center justify-center mb-6 text-primary">
                 <Code className="w-6 h-6" />
@@ -328,6 +328,14 @@ export default function Home() {
               severity="High"
               takeaway="Chaining vulnerabilities is the most effective way to demonstrate critical impact."
               delay={0.4}
+            />
+            <ProjectCard
+              title="Bug Bounty: Google Meet Time Limit Bypass"
+              description="Reported a business logic flaw where Google Meet sessions could remain active indefinitely if the meeting owner created the room but never joined."
+              tags={["Business Logic", "Google VRP", "Google Meet"]}
+              severity="Medium"
+              takeaway="Even non-technical logic flaws can create high-impact abuse scenarios at scale."
+              delay={0.5}
             />
           </div>
         </section>

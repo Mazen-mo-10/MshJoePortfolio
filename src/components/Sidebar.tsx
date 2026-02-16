@@ -81,7 +81,7 @@ export function Sidebar() {
               Download CV
             </Button>
             <div className="mt-6 text-center text-xs text-muted-foreground">
-              © 2024 Youssef M.
+              © 2026 Youssef Mohamed.
             </div>
           </div>
         </div>

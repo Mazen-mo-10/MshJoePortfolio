@@ -9,7 +9,7 @@ import { Textarea } from "@/components/ui/textarea";
 import { useContact } from "@/hooks/use-contact";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
-import { insertMessageSchema, type InsertMessage } from "@shared/schema";
+import { contactFormSchema, type ContactFormData } from "@/lib/contactSchema";
 import { motion, AnimatePresence } from "framer-motion";
 import { 
   SiHackerone, 
@@ -26,7 +26,6 @@ import {
   SiJavascript
 } from "react-icons/si";
 import { Github, Linkedin, Mail, Terminal, Lock, Code, GraduationCap, ChevronUp } from "lucide-react";
-import profilePic from "@assets/mshjoeing_1771196177993.jpeg";
 import {
   Form,
   FormControl,
@@ -48,8 +47,8 @@ export default function Home() {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
   
-  const form = useForm<InsertMessage>({
-    resolver: zodResolver(insertMessageSchema),
+  const form = useForm<ContactFormData>({
+    resolver: zodResolver(contactFormSchema),
     defaultValues: {
       name: "",
       email: "",
@@ -57,7 +56,7 @@ export default function Home() {
     },
   });
 
-  const onSubmit = (data: InsertMessage) => {
+  const onSubmit = (data: ContactFormData) => {
     contactMutation.mutate(data, {
       onSuccess: () => form.reset(),
     });
@@ -96,18 +95,20 @@ export default function Home() {
                 Trusted by real-world bug bounty programs and security platforms.
               </p>
               
-              <div className="flex gap-4">
-                <Button 
-                  size="lg" 
-                  className="bg-transparent border border-primary text-primary hover:bg-primary/10 font-mono h-12 px-8"
-                  onClick={() => document.getElementById('projects')?.scrollIntoView({ behavior: 'smooth' })}
+              <div className="flex flex-wrap items-center gap-6">
+                <Button
+                  type="button"
+                  size="lg"
+                  className="shrink-0 bg-transparent border border-primary text-primary hover:bg-primary/10 font-mono h-12 px-8 whitespace-nowrap"
+                  onClick={() => document.getElementById("projects")?.scrollIntoView({ behavior: "smooth" })}
                 >
                   Check my work
                 </Button>
-                <Button 
-                  size="lg" 
-                  className="bg-primary text-primary-foreground hover:bg-primary/90 font-mono h-12 px-8"
-                  onClick={() => document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' })}
+                <Button
+                  type="button"
+                  size="lg"
+                  className="shrink-0 bg-primary text-primary-foreground hover:bg-primary/90 font-mono h-12 px-8 whitespace-nowrap"
+                  onClick={() => document.getElementById("contact")?.scrollIntoView({ behavior: "smooth" })}
                 >
                   Contact Me
                 </Button>
@@ -129,11 +130,11 @@ export default function Home() {
               </p>
               <p>
                 I am currently studying Computer Science at <span className="text-primary">Minya National University</span> 
-                (GPA 3.6), where I balance my academic studies with real-world security research.
+                , where I balance my academic studies with real-world security research.
               </p>
               <p>
-                I actively participate in Bug Bounty programs on platforms like <span className="text-primary">HackerOne</span> and 
-                <span className="text-primary">Bugcrowd</span>, where I've identified critical vulnerabilities in various applications.
+                I actively participate in Bug Bounty programs on platforms like <span className="text-primary">HackerOne</span> and  
+                <span className="text-primary"> Bugcrowd</span>, where I've identified critical vulnerabilities in various applications.
               </p>
               <p className="border-l-2 border-primary/30 pl-4 italic text-foreground/90">
                 My approach focuses on understanding systems deeply, modeling real attacker behavior,
@@ -155,10 +156,18 @@ export default function Home() {
                 <div className="absolute inset-0 border-2 border-primary rounded-lg translate-x-4 translate-y-4 group-hover:translate-x-2 group-hover:translate-y-2 transition-transform duration-300" />
                 <div className="relative rounded-lg overflow-hidden bg-muted w-full aspect-square grayscale hover:grayscale-0 transition-all duration-300">
                   <img 
-                    src={profilePic} 
+                    src="/mshjoeing_1771196177993.jpeg" 
                     alt="Youssef Mohamed" 
                     className="w-full h-full object-cover"
+                    onError={(e) => {
+                      const target = e.currentTarget;
+                      target.style.display = "none";
+                      target.nextElementSibling?.classList.remove("hidden");
+                    }}
                   />
+                  <div className="hidden absolute inset-0 flex items-center justify-center text-muted-foreground font-mono text-sm">
+                    Photo
+                  </div>
                   <div className="absolute inset-0 bg-primary/20 hover:bg-transparent transition-colors duration-300" />
                 </div>
               </div>
@@ -335,6 +344,19 @@ export default function Home() {
               ]}
               delay={0.2}
             />
+            <ExperienceItem 
+              role="Cybersecurity Intern (Penetration Testing)"
+              company="DEPI"
+              date="2025 - 2026"
+              description={[
+                "Conducted web penetration testing labs covering authentication, JWT, SQLi, access control, file upload, LFI/RFI.",
+                "Produced vulnerability assessment reports with remediation guidance.",
+                "Worked with Burp Suite and web security testing tools.",
+                "Exposure to Android network analysis and Active Directory environments.",
+              ]}
+              delay={0.2}
+            />
+
           </div>
         </section>
 
@@ -353,14 +375,18 @@ export default function Home() {
             </div>
             <div>
               <h3 className="text-2xl font-bold text-foreground">Bachelor of Computer Science</h3>
-              <p className="text-xl text-primary mt-2">Minya National University</p>
-              <p className="text-sm font-mono text-muted-foreground mt-1">2021 - 2025 (Expected)</p>
+              <p className="text-xl text-primary mt-2">Minya National University (MNU)</p>
+              <p className="text-sm font-mono text-muted-foreground mt-1">2023 - 2027 (Still Studying)</p>
               
               <div className="mt-6 flex flex-wrap gap-3">
                 <span className="px-3 py-1 rounded-full bg-primary/10 text-primary text-xs font-mono border border-primary/20">GPA: 3.6/4.0</span>
                 <span className="px-3 py-1 rounded-full bg-secondary text-muted-foreground text-xs font-mono border border-border">Data Structures</span>
                 <span className="px-3 py-1 rounded-full bg-secondary text-muted-foreground text-xs font-mono border border-border">Operating Systems</span>
                 <span className="px-3 py-1 rounded-full bg-secondary text-muted-foreground text-xs font-mono border border-border">Computer Networks</span>
+                <span className="px-3 py-1 rounded-full bg-secondary text-muted-foreground text-xs font-mono border border-border">Computer Architecture</span>
+                <span className="px-3 py-1 rounded-full bg-secondary text-muted-foreground text-xs font-mono border border-border">OOP</span>
+                <span className="px-3 py-1 rounded-full bg-secondary text-muted-foreground text-xs font-mono border border-border">DataBase Mangment</span>
+                <span className="px-3 py-1 rounded-full bg-secondary text-muted-foreground text-xs font-mono border border-border">AI & Machine Learning</span>
               </div>
             </div>
           </motion.div>
@@ -447,7 +473,7 @@ export default function Home() {
                 <Github className="w-6 h-6" />
               </a>
               <a 
-                href="https://linkedin.com/in/youssef-mohamed-8b2a3a1b4" 
+                href="https://www.linkedin.com/in/youssef-mohamed-houdini/" 
                 target="_blank" 
                 rel="noreferrer"
                 className="text-muted-foreground hover:text-primary hover:-translate-y-1 transition-all"
@@ -461,7 +487,7 @@ export default function Home() {
                 <Mail className="w-6 h-6" />
               </a>
               <a 
-                href="https://hackerone.com/houdini-y" 
+                href="https://hackerone.com/houdiniy?type=user" 
                 target="_blank" 
                 rel="noreferrer"
                 className="text-muted-foreground hover:text-primary hover:-translate-y-1 transition-all"

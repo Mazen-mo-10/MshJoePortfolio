@@ -121,7 +121,7 @@ export default function Home() {
         <section id="about" className="py-24 p-6 md:p-12 lg:p-24 max-w-5xl mx-auto">
           <SectionHeading number="01" title="About Me" />
           
-          <div className="grid md:grid-cols-5 gap-12">
+          <div className="grid md:grid-cols-5 gap-12 items-start">
             <div className="md:col-span-3 text-muted-foreground text-lg leading-relaxed space-y-6">
               <p>
                 Hello! My name is Youssef and I enjoy exploring the depths of systems to find vulnerabilities. 
@@ -151,24 +151,39 @@ export default function Home() {
               </div>
             </div>
             
-            <div className="md:col-span-2 flex justify-center md:justify-start">
-              <div className="relative group w-64 h-64 md:w-full md:h-auto max-w-xs">
-                <div className="absolute inset-0 border-2 border-primary rounded-lg translate-x-4 translate-y-4 group-hover:translate-x-2 group-hover:translate-y-2 transition-transform duration-300" />
-                <div className="relative rounded-lg overflow-hidden bg-muted w-full aspect-square grayscale hover:grayscale-0 transition-all duration-300">
-                  <img 
-                    src="/mshjoeing_1771196177993.jpeg" 
-                    alt="Youssef Mohamed" 
-                    className="w-full h-full object-cover"
-                    onError={(e) => {
-                      const target = e.currentTarget;
-                      target.style.display = "none";
-                      target.nextElementSibling?.classList.remove("hidden");
-                    }}
-                  />
-                  <div className="hidden absolute inset-0 flex items-center justify-center text-muted-foreground font-mono text-sm">
-                    Photo
+            <div className="md:col-span-2">
+              <div className="flex flex-col w-full max-w-sm mx-auto gap-5">
+                <div className="relative group w-full max-w-[18rem] sm:max-w-[19rem] mx-auto">
+                  <div className="rounded-xl border-2 border-primary p-1.5 bg-background shadow-lg group-hover:shadow-primary/20 transition-all duration-300">
+                    <div className="relative rounded-lg overflow-hidden aspect-square w-full grayscale hover:grayscale-0 transition-all duration-300">
+                      <img 
+                        src="/mshjoeing_1771196177993.jpeg" 
+                        alt="Youssef Mohamed" 
+                        className="w-full h-full object-cover"
+                        onError={(e) => {
+                          const target = e.currentTarget;
+                          target.style.display = "none";
+                          target.nextElementSibling?.classList.remove("hidden");
+                        }}
+                      />
+                      <div className="hidden absolute inset-0 flex items-center justify-center text-muted-foreground font-mono text-sm">
+                        Photo
+                      </div>
+                      <div className="absolute inset-0 bg-primary/20 hover:bg-transparent transition-colors duration-300" />
+                    </div>
                   </div>
-                  <div className="absolute inset-0 bg-primary/20 hover:bg-transparent transition-colors duration-300" />
+                </div>
+                <div className="flex flex-col gap-4 rounded-xl border border-border/50 bg-card/40 p-4">
+                  <div className="rounded-lg border border-primary/40 bg-card/50 p-4 text-center shrink-0">
+                    <p className="font-mono text-xs text-primary mb-1">$ whoami</p>
+                    <p className="text-sm text-foreground font-medium">Offensive Security · Bug Bounty</p>
+                    <p className="text-xs text-muted-foreground mt-2 italic">Break to build. Find to fix.</p>
+                  </div>
+                  <div className="rounded-lg border border-primary/40 bg-card/50 p-4 text-center shrink-0">
+                    <p className="font-mono text-xs text-primary mb-1">$ cat mindset.txt</p>
+                    <p className="text-sm text-foreground font-medium">Think like an attacker.</p>
+                    <p className="text-xs text-muted-foreground mt-2 italic">Secure by understanding the breach.</p>
+                  </div>
                 </div>
               </div>
             </div>
